@@ -1,11 +1,21 @@
 import { Button, Stack, Typography } from "@mui/material";
 import logo from "../../assets/LogoTextFilmGard.png";
+import { useState } from "react";
 const NavBar = () => {
+  const [isScroll, setIsScroll] = useState(false);
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 80) {
+      setIsScroll(true);
+    } else {
+      setIsScroll(false);
+    }
+  });
   return (
     <Stack
-      boxShadow={1}
+      boxShadow={isScroll ? 1 : 0}
+      sx={{ transition: "box-shadow 0.2s" }}
       width="100%"
-      height="80px"
+      height="75px"
       px="150px"
       flexDirection="row"
       justifyContent="space-between"
@@ -26,6 +36,7 @@ const NavBar = () => {
         size="medium"
         color="primary"
         sx={{ borderRadius: "100px" }}
+        href="/login"
       >
         <Typography variant="body1">ثبت نام / ورود</Typography>
       </Button>
