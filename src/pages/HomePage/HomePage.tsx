@@ -1,6 +1,7 @@
 import { Divider, Stack } from "@mui/material";
 import NavBar from "../../components/NavBar/NavBar";
 import Hero from "../../components/Hero/Hero";
+import Footer from "../../components/Footer/Footer";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
           فیلم های برتر IMDB
         </Divider>
       </Stack>
+      <Footer />
     </>
   );
 };
