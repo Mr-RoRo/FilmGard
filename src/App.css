@@ -1,3 +1,6 @@
 body{
     direction:rtl;
 }
+a{
+    text-decoration: none;
+}
