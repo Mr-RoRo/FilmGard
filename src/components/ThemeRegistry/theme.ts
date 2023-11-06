@@ -31,7 +31,7 @@ const theme = createTheme({
     mode: "light",
     primary: {
       main: "#FD7427",
-      contrastText: '#fff',
+      contrastText: "#fff",
     },
     secondary: {
       main: "#FCFCFC",
@@ -78,6 +78,22 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiTextField: {
+      variants: [
+        {
+          props: { size: "small" },
+          style: {
+            width: "100px",
+          },
+        },
+        {
+          props: { size: "medium" },
+          style: {
+            width: "320px",
+          },
+        },
+      ],
+    },
     MuiMenuItem: {
       styleOverrides: {
         root: {
