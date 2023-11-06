@@ -33,17 +33,30 @@ const Login = () => {
             <Button variant="contained" size="large" disableElevation>
               ورود
             </Button>
-            <Typography variant="badge">
-              حساب کاربری ندارید؟{" "}
-              <Typography
-                variant="badge"
-                color="primary"
-                component={"a"}
-                href="/SignUp"
-              >
-                ثبت نام کنید
+            <Stack gap="5px">
+              <Typography variant="badge">
+                حساب کاربری ندارید؟{" "}
+                <Typography
+                  variant="badge"
+                  color="primary"
+                  component={"a"}
+                  href="/SignUp"
+                >
+                  ثبت نام کنید
+                </Typography>
               </Typography>
-            </Typography>
+              <Typography variant="badge">
+                برای برگشت به سایت{" "}
+                <Typography
+                  variant="badge"
+                  color="primary"
+                  component={"a"}
+                  href="/"
+                >
+                  کلیک کنید
+                </Typography>
+              </Typography>
+            </Stack>
           </Stack>
         </Stack>
         <Box

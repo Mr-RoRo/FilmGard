@@ -38,17 +38,30 @@ const SignUp = () => {
             <Button variant="contained" size="large" disableElevation>
               ثبت نام
             </Button>
-            <Typography variant="badge">
-              حساب کاربری دارید؟{" "}
-              <Typography
-                variant="badge"
-                color="primary"
-                component={"a"}
-                href="/Login"
-              >
-                وارد شوید
+            <Stack gap="5px">
+              <Typography variant="badge">
+                حساب کاربری دارید؟{" "}
+                <Typography
+                  variant="badge"
+                  color="primary"
+                  component={"a"}
+                  href="/Login"
+                >
+                  وارد شوید
+                </Typography>
               </Typography>
-            </Typography>
+              <Typography variant="badge">
+                برای برگشت به سایت{" "}
+                <Typography
+                  variant="badge"
+                  color="primary"
+                  component={"a"}
+                  href="/"
+                >
+                  کلیک کنید
+                </Typography>
+              </Typography>
+            </Stack>
           </Stack>
         </Stack>
         <Box
