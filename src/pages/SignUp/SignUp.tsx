@@ -9,8 +9,13 @@ import {
 import PassInput from "../../components/PassInput/PassInput";
 import FormPic from "../../assets/FormPic.jpg";
 import Logo from "../../assets/LogoTextFilmGard.png";
+import axios from "axios";
+import { useRef } from "react";
 
 const SignUp = () => {
+  const username = useRef<HTMLInputElement>(null);
+  const email = useRef<HTMLInputElement>(null);
+  const password = useRef<HTMLInputElement>(null);
   return (
     <>
       <Stack flexDirection="row" justifyContent="space-between">
@@ -25,6 +30,7 @@ const SignUp = () => {
             <Stack gap="5px">
               <FormHelperText>نام کاربری</FormHelperText>
               <TextField
+                inputRef={username}
                 size="medium"
                 variant="outlined"
                 placeholder="نام کاربری"
@@ -32,10 +38,37 @@ const SignUp = () => {
             </Stack>
             <Stack gap="5px">
               <FormHelperText>ایمیل</FormHelperText>
-              <TextField size="medium" variant="outlined" placeholder="ایمیل" />
+              <TextField
+                inputRef={email}
+                size="medium"
+                variant="outlined"
+                placeholder="ایمیل"
+              />
             </Stack>
-            <PassInput label="رمز عبور" placeHolder="رمز عبور" />
-            <Button variant="contained" size="large" disableElevation>
+            <PassInput
+              inputRef={password}
+              label="رمز عبور"
+              placeHolder="رمز عبور"
+            />
+            <Button
+              variant="contained"
+              size="large"
+              disableElevation
+              onClick={async () => {
+                axios
+                  .post("https://moviesapi.ir/api/v1/register", {
+                    name: username.current?.value,
+                    email: email.current?.value,
+                    password: password.current?.value,
+                  })
+                  .then((res) => {
+                    console.log(res.data);
+                  })
+                  .catch((err) => {
+                    console.log(err.message);
+                  });
+              }}
+            >
               ثبت نام
             </Button>
             <Stack gap="5px">
