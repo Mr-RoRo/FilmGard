@@ -1,15 +1,15 @@
 import { Box, Stack, Typography } from "@mui/material";
 import logo from "../../assets/LogoTextFilmGard.png";
-import { useState } from "react";
+// import { useState } from "react";
 const NavBar = () => {
-  const [isScroll, setIsScroll] = useState(false);
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 80) {
-      setIsScroll(true);
-    } else {
-      setIsScroll(false);
-    }
-  });
+  // const [isScroll, setIsScroll] = useState(false);
+  // window.addEventListener("scroll", () => {
+  //   if (window.pageYOffset > 80) {
+  //     setIsScroll(true);
+  //   } else {
+  //     setIsScroll(false);
+  //   }
+  // });
   return (
     <Stack
       boxShadow={1}
