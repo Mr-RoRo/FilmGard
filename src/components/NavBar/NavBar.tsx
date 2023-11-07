@@ -1,4 +1,4 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import logo from "../../assets/LogoTextFilmGard.png";
 import { useState } from "react";
 const NavBar = () => {
@@ -15,7 +15,7 @@ const NavBar = () => {
       boxShadow={isScroll ? 1 : 0}
       sx={{ transition: "box-shadow 0.2s" }}
       width="100%"
-      height="75px"
+      height="68px"
       px="150px"
       flexDirection="row"
       justifyContent="space-between"
@@ -25,21 +25,13 @@ const NavBar = () => {
       zIndex={100}
     >
       <Stack flexDirection="row" alignItems="center" gap="30px">
-        <img src={logo} width={144} height={54} />
-        <Typography>صفحه اصلی</Typography>
-        <Typography>فیلم ها</Typography>
-        <Typography>ثبت فیلم</Typography>
+        <Typography variant="body2" component="a" href="/">
+          صفحه اصلی
+        </Typography>
+        <Typography variant="body2">فیلم ها</Typography>
+        <Typography variant="body2">درباره ما</Typography>
       </Stack>
-      <Button
-        disableElevation
-        variant="contained"
-        size="medium"
-        color="primary"
-        sx={{ borderRadius: "100px" }}
-        href="/login"
-      >
-        <Typography variant="body1">ثبت نام / ورود</Typography>
-      </Button>
+      <Box component="img" src={logo} width={144} height={54} />
     </Stack>
   );
 };
