@@ -12,7 +12,7 @@ const NavBar = () => {
   });
   return (
     <Stack
-      boxShadow={isScroll ? 1 : 0}
+      boxShadow={1}
       sx={{ transition: "box-shadow 0.2s" }}
       width="100%"
       height="68px"
@@ -26,10 +26,12 @@ const NavBar = () => {
     >
       <Stack flexDirection="row" alignItems="center" gap="30px">
         <Typography variant="body2" component="a" href="/">
-          صفحه اصلی
+          Home
         </Typography>
-        <Typography variant="body2">فیلم ها</Typography>
-        <Typography variant="body2">درباره ما</Typography>
+        <Typography component="a" href="/movies" variant="body2">
+          Movies
+        </Typography>
+        <Typography variant="body2">About Us</Typography>
       </Stack>
       <Box component="img" src={logo} width={144} height={54} />
     </Stack>

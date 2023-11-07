@@ -14,8 +14,8 @@ const Footer = () => {
       justifyContent="center"
     >
       <Stack flexDirection="row" gap="48px">
-        <Typography variant="body2">درباره من</Typography>
-        <Typography variant="body2">تماس با من </Typography>
+        <Typography variant="body2">About Me</Typography>
+        <Typography variant="body2">Contact Me</Typography>
       </Stack>
       <Stack flexDirection="row" gap="16px">
         <TelegramIcon fontSize="large" />
@@ -23,11 +23,10 @@ const Footer = () => {
         <TwitterIcon fontSize="large" />
       </Stack>
       <Typography variant="body2">
-        کلیه حقوق این سرویس محفوظ و متعلق به{" "}
+        All rights of this service are reserved and belong to{" "}
         <Box component="span" color="primary.main">
-          تیم فیلم گرد
-        </Box>{" "}
-        می باشد
+          FilmGard
+        </Box>
       </Typography>
     </Stack>
   );

@@ -28,7 +28,7 @@ const HomePage = () => {
       <Stack mx="150px" mt="90px" mb="40px">
         <Hero />
         <Divider sx={{ fontSize: "20px", mt: "40px", mb: "25px" }}>
-          فیلم های برتر IMDB
+          IMDB Top Movies
         </Divider>
         <MovieCard data={responseMovie} />
       </Stack>

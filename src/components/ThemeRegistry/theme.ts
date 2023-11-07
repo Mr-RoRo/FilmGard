@@ -31,6 +31,7 @@ const theme = createTheme({
     mode: "light",
     primary: {
       main: "#FD7427",
+
       contrastText: "#fff",
     },
     secondary: {
@@ -83,7 +84,7 @@ const theme = createTheme({
         {
           props: { size: "small" },
           style: {
-            width: "100px",
+            width: "200px",
           },
         },
         {
@@ -93,13 +94,6 @@ const theme = createTheme({
           },
         },
       ],
-    },
-    MuiMenuItem: {
-      styleOverrides: {
-        root: {
-          direction: "rtl",
-        },
-      },
     },
     MuiIcon: {
       styleOverrides: {
@@ -168,8 +162,8 @@ const theme = createTheme({
         root: {
           borderColor: "#3F99D2",
           borderRadius: "8px",
-          ":disabled": {
-            background: "#ABC6F4",
+          ":hover": {
+            backgroundColor: "#ED681D",
           },
         },
       },

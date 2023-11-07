@@ -16,3 +16,7 @@ export interface MovieRes {
     total_count: number;
   };
 }
+export interface GenresList {
+  id: number;
+  name: string;
+}

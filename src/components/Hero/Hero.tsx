@@ -9,10 +9,12 @@ const Hero = () => {
     >
       <Stack>
         <Typography fontSize="36px">
-          هرچی از دنیای سینما بخواید تو فیلم گرد پیدا میشه
+          Everything you want from the world of cinema can be found in the
+          FilmGard
         </Typography>
         <Typography color="secondary.500" variant="h2">
-          سرویس فیلم گرد با دسترسی به هزاران فیلم پیدا کردن فیلم را راحت تر کرده
+          FilmGard service has made it easier to find movies by accessing
+          thousands of movies
         </Typography>
       </Stack>
       <Stack>

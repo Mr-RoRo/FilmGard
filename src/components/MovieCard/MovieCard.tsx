@@ -9,7 +9,7 @@ interface Props {
 
 const MovieCard = ({ data }: Props) => {
   return (
-    <Grid container spacing={2} justifyContent="center">
+    <Grid container spacing={4} justifyContent="center">
       {data?.data.map((card) => (
         <Grid item key={card.id}>
           <Stack
