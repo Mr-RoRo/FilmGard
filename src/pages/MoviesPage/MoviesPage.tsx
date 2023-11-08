@@ -33,7 +33,9 @@ const MoviesPage = () => {
   useEffect(() => {
     const fetch = () => {
       axios
-        .get<MovieRes>("https://moviesapi.ir/api/v1/movies?page=1")
+        .get<MovieRes>(
+          "https://moviesapi.ir/api/v1/movies?q=godfather&page={page}"
+        )
         .then((res) => {
           setResponseMovie(res.data);
         })
