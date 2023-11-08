@@ -159,12 +159,9 @@ const theme = createTheme({
           width: "87px",
           height: "48px",
         },
+
         root: {
-          borderColor: "#3F99D2",
           borderRadius: "8px",
-          ":hover": {
-            backgroundColor: "#ED681D",
-          },
         },
       },
     },

@@ -39,16 +39,20 @@ const MovieCard = ({ data }: Props) => {
                 <Stack m="8px 9px" sx={{ direction: "ltr" }} gap="5px">
                   <Typography variant="body1">{card?.title}</Typography>
                   <Stack flexDirection="row" justifyContent="space-between">
-                    <Stack flexDirection="row" gap="3px">
-                      <StarIcon color="warning" fontSize="inherit" />
-                      <Typography variant="body2">
-                        {card?.imdb_rating}
-                      </Typography>
-                    </Stack>
-                    <Stack flexDirection="row" gap="3px">
-                      <CalendarMonthIcon fontSize="inherit" />
-                      <Typography variant="body2">{card?.year}</Typography>
-                    </Stack>
+                    {card.imdb_rating && (
+                      <Stack flexDirection="row" gap="3px">
+                        <StarIcon color="warning" fontSize="inherit" />
+                        <Typography variant="body2">
+                          {card?.imdb_rating}
+                        </Typography>
+                      </Stack>
+                    )}
+                    {card.year && (
+                      <Stack flexDirection="row" gap="3px">
+                        <CalendarMonthIcon fontSize="inherit" />
+                        <Typography variant="body2">{card?.year}</Typography>
+                      </Stack>
+                    )}
                   </Stack>
                   <Stack flexDirection="row" gap="5px">
                     {card.genres?.map((genre) => (
@@ -59,7 +63,7 @@ const MovieCard = ({ data }: Props) => {
               </Stack>
             </Grid>
           ))
-        : [1, 2, 3, 4].map((item) => (
+        : [1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
             <Grid item>
               <Skeleton key={item} variant="rounded" width={363} height={550} />
             </Grid>
