@@ -16,28 +16,38 @@ import { GenresList, MovieRes } from "../../components/Interface/interfaces";
 import SearchIcon from "@mui/icons-material/Search";
 const MoviesPage = () => {
   const [responseMovie, setResponseMovie] = useState<MovieRes>();
-  const [NotSerach, setNotSearch] = useState(true);
+  const [isMovies, setMovies] = useState(false);
+  const [isSearch, setSearch] = useState(false);
+  const [isGenre, setGenre] = useState(false);
   const [genresList, setGenresList] = useState<GenresList[]>();
   const [selectedGenre, setSelectedGenre] = useState("No Genre");
   const searchMovie = useRef<HTMLInputElement>(null);
 
-  const SearchFetch = () => {
+  const SearchFetch = (nextOrBack: number = 1) => {
     axios
       .get<MovieRes>(
-        `https://moviesapi.ir/api/v1/movies?q=${searchMovie.current?.value}`
+        `https://moviesapi.ir/api/v1/movies?q=${
+          searchMovie.current?.value
+        }&page=${
+          isSearch
+            ? Number(responseMovie?.metadata?.current_page) + nextOrBack
+            : Number(responseMovie?.metadata.current_page)
+        }`
       )
       .then((res) => {
         setResponseMovie(res.data);
       })
       .catch((err) => console.log(err.message));
-    setNotSearch(false);
+    setMovies(false);
+    setGenre(false);
+    setSearch(true);
   };
 
   const fetchMovies = (nextOrBack: number = 1) => {
     axios
       .get<MovieRes>(
         `https://moviesapi.ir/api/v1/movies?page=${
-          NotSerach
+          isMovies
             ? Number(responseMovie?.metadata?.current_page) + nextOrBack
             : Number(responseMovie?.metadata.current_page)
         }`
@@ -48,6 +58,7 @@ const MoviesPage = () => {
       .catch((err) => {
         console.log(err.message);
       });
+    setMovies(true);
   };
 
   const fetchGenre = () => {
@@ -60,8 +71,26 @@ const MoviesPage = () => {
         console.log(err.message);
       });
   };
+
+  const fetchGenreDetail = (nextOrBack: number = 1) => {
+    axios
+      .get<MovieRes>(
+        `https://moviesapi.ir/api/v1/genres/${selectedGenre}/movies?page=${
+          isGenre
+            ? Number(responseMovie?.metadata?.current_page) + nextOrBack
+            : Number(responseMovie?.metadata.current_page)
+        }`
+      )
+      .then((res) => {
+        setResponseMovie(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   useEffect(() => {
-    fetchMovies();
+    fetchMovies(1);
     fetchGenre();
   }, []);
 
@@ -85,13 +114,13 @@ const MoviesPage = () => {
               inputRef={searchMovie}
               onKeyDown={(e) => {
                 if (e.keyCode == 13) {
-                  SearchFetch();
+                  SearchFetch(1);
                 }
               }}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton edge="end" onClick={SearchFetch}>
+                    <IconButton edge="end" onClick={() => SearchFetch(1)}>
                       <SearchIcon
                         fontSize="large"
                         sx={{ color: "secondary.300" }}
@@ -117,6 +146,9 @@ const MoviesPage = () => {
                   .catch((err) => {
                     console.log(err.message);
                   });
+                setMovies(false);
+                setGenre(true);
+                setSearch(false);
               }}
             >
               <MenuItem value="No Genre">No Genre</MenuItem>
@@ -135,7 +167,9 @@ const MoviesPage = () => {
               variant="outlined"
               onClick={() => {
                 {
-                  NotSerach && fetchMovies(-1);
+                  isMovies && fetchMovies(-1);
+                  isSearch && SearchFetch(-1);
+                  isGenre && fetchGenreDetail(-1);
                 }
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
@@ -146,7 +180,9 @@ const MoviesPage = () => {
               variant="outlined"
               onClick={() => {
                 {
-                  NotSerach && fetchMovies(+1);
+                  isMovies && fetchMovies(+1);
+                  isSearch && SearchFetch(+1);
+                  isGenre && fetchGenreDetail(+1);
                 }
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
