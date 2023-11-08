@@ -34,7 +34,7 @@ const MoviesPage = () => {
     const fetch = () => {
       axios
         .get<MovieRes>(
-          "https://moviesapi.ir/api/v1/movies?q=godfather&page={page}"
+          "https://moviesapi.ir/api/v1/movies?page={page}"
         )
         .then((res) => {
           setResponseMovie(res.data);
