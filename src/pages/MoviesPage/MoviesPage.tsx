@@ -31,7 +31,7 @@ const MoviesPage = () => {
         }&page=${
           isSearch
             ? Number(responseMovie?.metadata?.current_page) + nextOrBack
-            : Number(responseMovie?.metadata.current_page)
+            : 1
         }`
       )
       .then((res) => {
@@ -95,7 +95,7 @@ const MoviesPage = () => {
   }, []);
 
   return (
-    <Stack justifyContent="space-between">
+    <Stack>
       <NavBar />
       <Stack mx="150px" mt="100px" mb="40px" gap="40px">
         <Stack

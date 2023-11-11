@@ -15,6 +15,8 @@ const MovieCard = ({ data }: Props) => {
         ? data.data?.map((card) => (
             <Grid item key={card?.id}>
               <Stack
+                component={"a"}
+                href={`Movies/${card.id}`}
                 width="363px"
                 height="550px"
                 bgcolor="#fff"
