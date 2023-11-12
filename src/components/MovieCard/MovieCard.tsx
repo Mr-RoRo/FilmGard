@@ -10,14 +10,14 @@ interface Props {
 
 const MovieCard = ({ data }: Props) => {
   return (
-    <Grid container spacing={4} justifyContent="center">
+    <Grid container spacing={4} justifyContent="center" >
       {data
         ? data.data?.map((card) => (
             <Grid item key={card?.id}>
               <Stack
                 component={"a"}
                 href={`Movies/${card.id}`}
-                width={{ xs: "320px", sm: "363px" }}
+                width={"320px"}
                 height="550px"
                 bgcolor="#fff"
                 border="1px solid"
@@ -34,7 +34,7 @@ const MovieCard = ({ data }: Props) => {
               >
                 <NoImage
                   src={card.poster}
-                  width={{ xs: 304, sm: 347 }}
+                  width={304}
                   height={394}
                   alt="Movie Poster"
                 />

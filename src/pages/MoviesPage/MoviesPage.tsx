@@ -6,6 +6,8 @@ import {
   Stack,
   TextField,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
@@ -22,7 +24,9 @@ const MoviesPage = () => {
   const [genresList, setGenresList] = useState<GenresList[]>();
   const [selectedGenre, setSelectedGenre] = useState("No Genre");
   const searchMovie = useRef<HTMLInputElement>(null);
-
+  const theme = useTheme();
+  const laptop = useMediaQuery(theme.breakpoints.between("sm", "lg"));
+  const mobile = useMediaQuery(theme.breakpoints.between("xs", "sm"));
   const SearchFetch = (nextOrBack: number = 1) => {
     axios
       .get<MovieRes>(
@@ -98,7 +102,7 @@ const MoviesPage = () => {
     <Stack>
       <NavBar />
       <Stack
-        mx={{ xs: "20px", lg: "150px" }}
+        mx={{ xs: "20px", sm: "30px", lg: "40px" }}
         alignItems={{ xs: "center", lg: "normal" }}
         mt="100px"
         gap="40px"
@@ -110,7 +114,7 @@ const MoviesPage = () => {
         >
           <Stack
             width="100%"
-            flexDirection={{ sx: "column", lg: "row" }}
+            flexDirection={{ sx: "column", sm: "row" }}
             gap={{ xs: "15px" }}
             justifyContent="space-between"
           >
@@ -138,7 +142,7 @@ const MoviesPage = () => {
             />
             <TextField
               select
-              size="medium"
+              size={mobile ? "medium" : laptop ? "small" : "medium"}
               value={selectedGenre}
               onChange={(e) => {
                 setSelectedGenre(e.target.value);
@@ -169,9 +173,10 @@ const MoviesPage = () => {
         <MovieCard data={responseMovie} />
         {responseMovie && (
           <Stack
-            flexDirection={{ xs: "column", lg: "row" }}
+            flexDirection={{ xs: "column", sm: "row" }}
             justifyContent="space-between"
             gap="20px"
+            width="100%"
             alignItems="center"
           >
             <Button
@@ -188,7 +193,7 @@ const MoviesPage = () => {
               Previous Page
             </Button>
             <Typography variant="h2">
-              Movies page {responseMovie?.metadata.current_page} of{" "}
+              page {responseMovie?.metadata.current_page} of{" "}
               {responseMovie?.metadata.page_count}
             </Typography>
             <Button

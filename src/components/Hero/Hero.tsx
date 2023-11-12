@@ -5,13 +5,13 @@ const Hero = () => {
   const mobile = useMediaQuery(theme.breakpoints.between("xs", "lg"));
   return (
     <Stack
-      flexDirection={{ xs: "column-reverse", lg: "row" }}
+      flexDirection={{ xs: "column-reverse", sm: "row" }}
       alignItems="center"
-      justifyContent="space-between"
+      // justifyContent="space-between"
     >
       <Stack
-        textAlign={{ xs: "center", lg: "left" }}
-        width={{ xs: "300px", lg: "100%" }}
+        textAlign={{ xs: "center", sm: "left" }}
+        width={{ xs: "300px", sm: "100%" }}
       >
         <Typography variant={mobile ? "body1" : "h1"}>
           Everything you want from the world of cinema can be found in the
@@ -26,8 +26,8 @@ const Hero = () => {
         <Stack
           component="img"
           src={HeroPhoto}
-          width={{ xs: 321, lg: 521 }}
-          height={{ xs: 350, lg: 575 }}
+          width={{ xs: 321 , sm: 360, lg: 521 }}
+          height={{ xs: 350 , sm: 380 , lg: 575 }}
         />
       </Stack>
     </Stack>

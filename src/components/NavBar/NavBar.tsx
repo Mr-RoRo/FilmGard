@@ -50,7 +50,7 @@ const NavBar = () => {
       sx={{ transition: "box-shadow 0.2s" }}
       width="100%"
       height="68px"
-      px={{ xs: "20px", lg: "150px" }}
+      px={{ xs: "20px", sm: "30px", lg: "40px" }}
       flexDirection="row"
       justifyContent="space-between"
       alignItems="center"
