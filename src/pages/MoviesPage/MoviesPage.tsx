@@ -97,19 +97,25 @@ const MoviesPage = () => {
   return (
     <Stack>
       <NavBar />
-      <Stack mx="150px" mt="100px" mb="40px" gap="40px">
+      <Stack
+        mx={{ xs: "20px", lg: "150px" }}
+        alignItems={{ xs: "center", lg: "normal" }}
+        mt="100px"
+        gap="40px"
+      >
         <Stack
           flexDirection="row"
           alignItems="center"
           justifyContent="space-between"
         >
-          <Typography variant="h2">
-            Movies page {responseMovie?.metadata.current_page} of{" "}
-            {responseMovie?.metadata.page_count}
-          </Typography>
-          <Stack gap="30px" flexDirection="row" justifyContent="space-between">
+          <Stack
+            width="100%"
+            flexDirection={{ sx: "column", lg: "row" }}
+            gap={{ xs: "15px" }}
+            justifyContent="space-between"
+          >
             <TextField
-              fullWidth
+              size="medium"
               placeholder="Search..."
               inputRef={searchMovie}
               onKeyDown={(e) => {
@@ -132,7 +138,7 @@ const MoviesPage = () => {
             />
             <TextField
               select
-              size="small"
+              size="medium"
               value={selectedGenre}
               onChange={(e) => {
                 setSelectedGenre(e.target.value);
@@ -162,7 +168,12 @@ const MoviesPage = () => {
         </Stack>
         <MovieCard data={responseMovie} />
         {responseMovie && (
-          <Stack flexDirection="row" justifyContent="space-between">
+          <Stack
+            flexDirection={{ xs: "column", lg: "row" }}
+            justifyContent="space-between"
+            gap="20px"
+            alignItems="center"
+          >
             <Button
               variant="outlined"
               onClick={() => {
@@ -176,6 +187,10 @@ const MoviesPage = () => {
             >
               Previous Page
             </Button>
+            <Typography variant="h2">
+              Movies page {responseMovie?.metadata.current_page} of{" "}
+              {responseMovie?.metadata.page_count}
+            </Typography>
             <Button
               variant="outlined"
               onClick={() => {

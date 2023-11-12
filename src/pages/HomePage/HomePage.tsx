@@ -25,7 +25,7 @@ const HomePage = () => {
   return (
     <>
       <NavBar />
-      <Stack mx="150px" mt="90px" mb="40px">
+      <Stack mx="150px" mt="90px">
         <Hero />
         <Divider
           sx={{
