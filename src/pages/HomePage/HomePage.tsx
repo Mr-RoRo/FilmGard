@@ -27,7 +27,15 @@ const HomePage = () => {
       <NavBar />
       <Stack mx="150px" mt="90px" mb="40px">
         <Hero />
-        <Divider sx={{ fontSize: "20px", mt: "40px", mb: "25px" }}>
+        <Divider
+          sx={{
+            fontSize: "20px",
+            mt: "40px",
+            mb: "25px",
+            width: { xs: "90vw", lg: "100%" },
+            alignSelf: { xs: "center" },
+          }}
+        >
           IMDB Top Movies
         </Divider>
         <MovieCard data={responseMovie} />

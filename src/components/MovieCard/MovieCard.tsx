@@ -17,7 +17,7 @@ const MovieCard = ({ data }: Props) => {
               <Stack
                 component={"a"}
                 href={`Movies/${card.id}`}
-                width="363px"
+                width={{ xs: "320px", sm: "363px" }}
                 height="550px"
                 bgcolor="#fff"
                 border="1px solid"
@@ -34,7 +34,7 @@ const MovieCard = ({ data }: Props) => {
               >
                 <NoImage
                   src={card.poster}
-                  width={347}
+                  width={{ xs: 304, sm: 347 }}
                   height={394}
                   alt="Movie Poster"
                 />

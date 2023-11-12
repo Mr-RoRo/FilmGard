@@ -12,6 +12,7 @@ const Footer = () => {
       gap="30px"
       alignItems="center"
       justifyContent="center"
+      px={{ xs: "10px" }}
     >
       <Stack flexDirection="row" gap="48px">
         <Typography variant="body2">About Me</Typography>
@@ -22,7 +23,7 @@ const Footer = () => {
         <GitHubIcon fontSize="large" />
         <TwitterIcon fontSize="large" />
       </Stack>
-      <Typography variant="body2">
+      <Typography textAlign={{ xs: "center" }} variant="body2">
         All rights of this service are reserved and belong to{" "}
         <Box component="span" color="primary.main">
           FilmGard

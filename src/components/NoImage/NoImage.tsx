@@ -1,9 +1,12 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
 import notImage from "../../assets/not-image.png";
+import { ResponsiveStyleValue, Theme } from '@mui/system';
+import { Property } from 'csstype';
+
 interface Props {
   src: string;
-  width: number;
+  width: ResponsiveStyleValue<Property.Width<string | number> | NonNullable<Property.Width<string | number> | undefined>[] | undefined> | ((theme: Theme) => ResponsiveStyleValue<Property.Width<string | number> | NonNullable<Property.Width<string | number> | undefined>[] | undefined>);
   height: number;
   borderRadius?: string;
   alt?: string;
