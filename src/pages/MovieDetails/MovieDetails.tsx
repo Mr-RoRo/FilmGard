@@ -141,7 +141,7 @@ const MovieDetails = () => {
               </Stack>
             </Stack>
             <Divider
-              orientation="vertical"
+              orientation={mobile ? "horizontal" : "vertical"}
               flexItem
               sx={{
                 width: { xs: "75vw", sm: "auto" },
