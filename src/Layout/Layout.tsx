@@ -8,9 +8,9 @@ const LayoutRouter = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/Movies" element={<MoviesPage />} />
-          <Route path="/Movies/:id" element={<MovieDetails />} />
+          <Route path="/FilmGard/" element={<HomePage />} />
+          <Route path="/FilmGard/Movies" element={<MoviesPage />} />
+          <Route path="/FilmGard/Movies/:id" element={<MovieDetails />} />
         </Routes>
       </Router>
     </>
