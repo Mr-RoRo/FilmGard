@@ -96,9 +96,9 @@ const MovieDetails = () => {
           mx={{ xs: "20px", sm: "30px", lg: "40px" }}
           gap="20px"
         >
-          <Stack flexDirection={{ xs: "column", lg: "row" }} width="100%">
+          <Stack flexDirection={{ xs: "column", md: "row" }} width="100%">
             <Stack
-              flexDirection={{ xs: "column", lg: "row" }}
+              flexDirection={{ xs: "column", md: "row" }}
               alignItems={{ xs: "center", lg: "normal" }}
               gap="10px"
             >
@@ -110,10 +110,10 @@ const MovieDetails = () => {
                 borderRadius={1.5}
               />
               <Stack
-                alignItems={{ xs: "center", lg: "normal" }}
+                alignItems={{ xs: "center", md: "normal" }}
                 justifyContent="space-between"
                 height="100%"
-                py={{ xs: "10px", lg: "15px" }}
+                py={{ xs: "10px", md: "15px" }}
                 gap={{ xs: "5px" }}
               >
                 <Typography variant="h1">{movieDetails?.title}</Typography>
@@ -135,20 +135,20 @@ const MovieDetails = () => {
               </Stack>
             </Stack>
             <Divider
-              orientation={mobile ? "horizontal" : "vertical"}
+              orientation="vertical"
               flexItem
               sx={{
-                width: { xs: "75vw", lg: "auto" },
-                alignSelf: { xs: "center", lg: "normal" },
+                width: { xs: "75vw", sm: "auto" },
+                alignSelf: { xs: "center", sm: "normal" },
               }}
             >
               Plot
             </Divider>
             <Typography
-              py="15px"
+              pt="15px"
               flex="1"
               variant={mobile ? "body2" : "body1"}
-              textAlign={{ xs: "center", lg: "left" }}
+              textAlign={{ xs: "center", md: "left" }}
             >
               {movieDetails?.plot}
             </Typography>
@@ -156,14 +156,18 @@ const MovieDetails = () => {
           <Divider orientation="horizontal" flexItem>
             Images
           </Divider>
-          <Stack flexDirection="row" justifyContent="space-between">
+          <Stack
+            flexDirection={{ xs: "column", md: "row" }}
+            justifyContent="space-between"
+            gap="15px"
+          >
             {movieDetails.images.map((image, index) => (
               <Stack
                 component="img"
                 key={index}
                 src={image}
-                width="500px"
-                height="300px"
+                width={{ xs: "100%" }}
+                height={{ xs: "250px", sm: "400px", md: "250px", lg: "340px" }}
                 borderRadius={1.5}
               />
             ))}
@@ -171,11 +175,17 @@ const MovieDetails = () => {
           <Divider orientation="horizontal" flexItem>
             More About Movie
           </Divider>
-          <Grid container xl={13} spacing={2}>
+          <Grid
+            container
+            xs
+            sm={13}
+            spacing={2}
+            justifyContent={{ xs: "center", lg: "normal" }}
+          >
             {RatingInfo.map((info) => (
-              <Grid xs={6} item>
+              <Grid sm={5} item>
                 <Stack
-                  flexDirection="row"
+                  flexDirection={{ xs: "column", lg: "row" }}
                   alignItems="center"
                   gap="5px"
                   key={info.id}
@@ -185,7 +195,7 @@ const MovieDetails = () => {
                     color="primary"
                     component={info.icon}
                   />
-                  <Typography>
+                  <Typography textAlign={mobile ? "center" : "left"}>
                     {info.name}
                     {info.content}
                   </Typography>
