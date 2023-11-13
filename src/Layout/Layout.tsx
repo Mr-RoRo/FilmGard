@@ -6,7 +6,7 @@ import MovieDetails from "../pages/MovieDetails/MovieDetails";
 const LayoutRouter = () => {
   return (
     <>
-      <Router basename="/FilmGard">
+      <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/Movies" element={<MoviesPage />} />

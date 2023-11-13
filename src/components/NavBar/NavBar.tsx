@@ -38,7 +38,7 @@ const NavBar = () => {
       <Typography variant="body2" component="a" href="/">
         Home
       </Typography>
-      <Typography component="a" href="/FilmGard/Movies" variant="body2">
+      <Typography component="a" href="/Movies" variant="body2">
         Movies
       </Typography>
       <Typography variant="body2">About Us</Typography>
