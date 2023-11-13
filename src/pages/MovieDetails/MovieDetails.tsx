@@ -5,6 +5,8 @@ import {
   Stack,
   SvgIcon,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -26,6 +28,8 @@ import DvrIcon from "@mui/icons-material/Dvr";
 const MovieDetails = () => {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState<MovieDetailsInteface>();
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.between("xs", "lg"));
   useEffect(() => {
     axios
       .get<MovieDetailsInteface>(`https://moviesapi.ir/api/v1/movies/${id}`)
@@ -89,11 +93,15 @@ const MovieDetails = () => {
           borderRadius={1.5}
           p="15px"
           mt="120px"
-          mx="150px"
+          mx={{ xs: "20px", sm: "30px", lg: "40px" }}
           gap="20px"
         >
-          <Stack flexDirection="row" width="100%">
-            <Stack flexDirection="row" gap="10px">
+          <Stack flexDirection={{ xs: "column", lg: "row" }} width="100%">
+            <Stack
+              flexDirection={{ xs: "column", lg: "row" }}
+              alignItems={{ xs: "center", lg: "normal" }}
+              gap="10px"
+            >
               <Stack
                 component="img"
                 src={movieDetails?.poster}
@@ -101,7 +109,13 @@ const MovieDetails = () => {
                 height="250px"
                 borderRadius={1.5}
               />
-              <Stack justifyContent="space-between" height="100%" py="15px">
+              <Stack
+                alignItems={{ xs: "center", lg: "normal" }}
+                justifyContent="space-between"
+                height="100%"
+                py={{ xs: "10px", lg: "15px" }}
+                gap={{ xs: "5px" }}
+              >
                 <Typography variant="h1">{movieDetails?.title}</Typography>
                 {MovieInfo.map((info) => (
                   <Stack
@@ -120,10 +134,22 @@ const MovieDetails = () => {
                 ))}
               </Stack>
             </Stack>
-            <Divider orientation="vertical" flexItem>
+            <Divider
+              orientation={mobile ? "horizontal" : "vertical"}
+              flexItem
+              sx={{
+                width: { xs: "75vw", lg: "auto" },
+                alignSelf: { xs: "center", lg: "normal" },
+              }}
+            >
               Plot
             </Divider>
-            <Typography py="15px" flex="1" variant="h3">
+            <Typography
+              py="15px"
+              flex="1"
+              variant={mobile ? "body2" : "body1"}
+              textAlign={{ xs: "center", lg: "left" }}
+            >
               {movieDetails?.plot}
             </Typography>
           </Stack>
