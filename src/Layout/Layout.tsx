@@ -6,11 +6,11 @@ import MovieDetails from "../pages/MovieDetails/MovieDetails";
 const LayoutRouter = () => {
   return (
     <>
-      <Router>
+      <Router basename="/FilmGard">
         <Routes>
-          <Route path="/FilmGard/" element={<HomePage />} />
-          <Route path="/FilmGard/Movies" element={<MoviesPage />} />
-          <Route path="/FilmGard/Movies/:id" element={<MovieDetails />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Movies" element={<MoviesPage />} />
+          <Route path="/Movies/:id" element={<MovieDetails />} />
         </Routes>
       </Router>
     </>
