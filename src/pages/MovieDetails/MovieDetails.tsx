@@ -29,7 +29,7 @@ const MovieDetails = () => {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState<MovieDetailsInteface>();
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.between("xs", "lg"));
+  const mobile = useMediaQuery(theme.breakpoints.between("xs", "md"));
   useEffect(() => {
     axios
       .get<MovieDetailsInteface>(`https://moviesapi.ir/api/v1/movies/${id}`)
@@ -116,7 +116,13 @@ const MovieDetails = () => {
                 py={{ xs: "10px", md: "15px" }}
                 gap={{ xs: "5px" }}
               >
-                <Typography variant="h1">{movieDetails?.title}</Typography>
+                <Typography
+                  width={{ md: "300px", lg: "auto" }}
+                  textAlign={mobile ? "center" : "left"}
+                  variant="h1"
+                >
+                  {movieDetails?.title}
+                </Typography>
                 {MovieInfo.map((info) => (
                   <Stack
                     flexDirection="row"
@@ -166,7 +172,7 @@ const MovieDetails = () => {
                 component="img"
                 key={index}
                 src={image}
-                width={{ xs: "100%" }}
+                width="100%"
                 height={{ xs: "250px", sm: "400px", md: "250px", lg: "340px" }}
                 borderRadius={1.5}
               />
@@ -206,9 +212,13 @@ const MovieDetails = () => {
         </Stack>
       ) : (
         <Skeleton
-          sx={{ alignSelf: "center", p: "15px", mt: "120px", mx: "150px" }}
+          sx={{
+            alignSelf: "center",
+            p: "15px",
+            mt: "120px",
+          }}
           variant="rounded"
-          width={1600}
+          width="90%"
           height={1200}
         />
       )}
